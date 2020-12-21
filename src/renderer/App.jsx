@@ -1,8 +1,9 @@
 
 import React from "react";
+import { hot } from 'react-hot-loader';
 
 const App = () => {
-  return <h1>Hello World From React</h1>;
+  return <h1>Hello World From React With HMR!</h1>;
 };
 
-export default App;
+export default hot(module)(App);
