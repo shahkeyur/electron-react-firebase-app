@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
-import { LoginForm } from "./forms";
+import { LoginForm } from "../components/authentication";
 
 const Login = () => {
   return (

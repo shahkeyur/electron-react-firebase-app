@@ -1,6 +1,6 @@
 import React from "react";
 import { hot } from "react-hot-loader";
-import { Login } from "./components/authentication";
+import { Login } from "./pages";
 
 const App = () => {
   return <Login />;
