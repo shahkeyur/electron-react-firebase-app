@@ -1,9 +1,9 @@
 import React from "react";
 import { hot } from "react-hot-loader";
-import { Login } from "./pages";
+import Routes from "./Routes";
 
 const App = () => {
-  return <Login />;
+  return <Routes />;
 };
 
 export default hot(module)(App);

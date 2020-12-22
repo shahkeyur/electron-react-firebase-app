@@ -1,17 +1,33 @@
-import React from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { useFormik } from "formik";
+import React, { useState } from "react";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import firebaseClient from "../../helpers/firebase";
+import classNames from "classnames";
 
 const SignupForm = () => {
+  const [loading, setLoading] = useState(false);
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (formData) => {
-      console.log(JSON.stringify(formData));
+    onSubmit: ({ email, password }) => {
+      setLoading(true);
+      firebaseClient
+        .signup(email, password)
+        .then((user) => {
+          console.log("User signed up: " + user);
+        })
+        .catch(() => {
+          console.log("Something went wrong");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     },
   });
-  
+
   return (
     <Form onSubmit={formik.handleSubmit}>
       <FormGroup>
@@ -35,8 +51,11 @@ const SignupForm = () => {
         />
       </FormGroup>
       <FormGroup>
-        <Button className="w-100" color="primary">
-          Login
+        <Button
+          className={classNames("w-100 mt-3", { disabled: loading })}
+          color="primary"
+        >
+          {!loading ? "Signup" : "Singing up..."}
         </Button>
       </FormGroup>
     </Form>

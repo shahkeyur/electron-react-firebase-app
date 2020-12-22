@@ -23,8 +23,11 @@ body {
   width: auto;
   display: flex;
   flex-grow: 1;
+  justify-content: center;
   flex-direction: column;
   padding: 24px;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .hero-header {
@@ -35,4 +38,18 @@ body {
   background-size: cover;
   padding: 24px;
   max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  opacity: 0.8;
 }
